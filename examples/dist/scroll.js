@@ -16,8 +16,7 @@ var Game = {
         this.display = new ROT.Display({
         	width: 40,
         	height: 20,
-        	spacing: 1.1,
-        	fontSize: 28
+        	spacing:1.1
         });
 
         document.body.appendChild(this.display.getContainer());
@@ -42,10 +41,6 @@ var Game = {
     	
     	if (this.camera_y - this.offset_y < 0) this.offset_y += this.camera_y - this.offset_y;
     	else if (this.height - this.camera_y + this.offset_y < h) this.offset_y -= (this.height - this.camera_y + this.offset_y) - h + 1;
-    },
-
-    _zoomCamera() {
-
     },
 
     _moveCamera: function(dx, dy) {        

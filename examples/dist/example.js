@@ -14,10 +14,10 @@ var Game = {
     
     init: function() {
         this.display = new ROT.Display({
-        	width: 40,
-        	height: 20,
+        	width: 200,
+        	height: 40,
         	spacing: 1.1,
-        	fontSize: 28
+        	fontSize: 20
         });
 
         document.body.appendChild(this.display.getContainer());
@@ -67,8 +67,8 @@ var Game = {
     },
 
     _generateMap: function() {    	
-    	this.width = 64;
-    	this.height = 32;
+    	this.width = 400;
+    	this.height = 100;
         var digger = new ROT.Map.Digger(this.width, this.height);
         //var digger = new ROT.Map.Arena(this.width, this.height); 
         var freeCells = [];
@@ -108,7 +108,7 @@ var Game = {
     },
     
     _generateBoxes: function(freeCells) {
-        for (var i=0;i<10;i++) {
+        for (var i=0;i<15;i++) {
             var index = Math.floor(ROT.RNG.getUniform() * freeCells.length);
             var key = freeCells.splice(index, 1)[0];
             this.map[key] = "*";
@@ -215,8 +215,7 @@ Pedro.prototype.getSpeed = function() { return 100; }
 Pedro.prototype.act = function() {
     var x = Game.player.getX();
     var y = Game.player.getY();
-    return;
-
+ 
 
     var passableCallback = function(x, y) {
         return (x+","+y in Game.map);
